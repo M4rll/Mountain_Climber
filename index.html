@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Climber</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Tela de Início -->
+        <div id="start-screen">
+            <div class="title-container">
+                <h1>🏔️ Mountain Climber</h1>
+                <p>Escale, explore e conquiste o pico!</p>
+                <button id="start-btn">Iniciar Escalada</button>
+                <div class="controls">
+                    <h3>🎮 Controles</h3>
+                    <p>A/D ou ←→ - Mover</p>
+                    <p>W/Espaço - Pular</p>
+                    <p>Shift - Correr</p>
+                    <p>E - Interagir</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tela de Jogo -->
+        <div id="game-screen" class="hidden">
+            <!-- HUD -->
+            <div id="hud">
+                <div id="stats">
+                    <div class="stat">
+                        <span class="icon">⛰️</span>
+                        <span id="altitude">0m</span>
+                    </div>
+                    <div class="stat">
+                        <span class="icon">❤️</span>
+                        <span id="health">100</span>
+                    </div>
+                    <div class="stat">
+                        <span class="icon">⏱️</span>
+                        <span id="time">00:00</span>
+                    </div>
+                </div>
+                
+                <div id="inventory">
+                    <div class="item" data-item="rope">
+                        <span class="item-icon">🧵</span>
+                        <span class="item-count">0</span>
+                    </div>
+                    <div class="item" data-item="pickaxe">
+                        <span class="item-icon">⛏️</span>
+                        <span class="item-count">1</span>
+                    </div>
+                    <div class="item" data-item="torch">
+                        <span class="item-icon">🔦</span>
+                        <span class="item-count">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Canvas do Jogo -->
+            <canvas id="game-canvas"></canvas>
+
+            <!-- Diálogos -->
+            <div id="dialog" class="hidden">
+                <div class="dialog-content">
+                    <p id="dialog-text"></p>
+                    <button id="dialog-ok">Continuar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tela de Game Over -->
+        <div id="game-over" class="hidden">
+            <div class="game-over-content">
+                <h2>🏔️ Cume Conquistado!</h2>
+                <div class="stats">
+                    <p>Tempo: <span id="final-time">00:00</span></p>
+                    <p>Altitude Máxima: <span id="final-altitude">0m</span></p>
+                    <p>Itens Coletados: <span id="final-items">0</span></p>
+                </div>
+                <button id="restart-btn">Escalar Novamente</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
