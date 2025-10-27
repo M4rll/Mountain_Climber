@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #1a1a2e;
+    color: white;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Telas */
+#start-screen, #game-over {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0f3460, #1a1a2e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Tela de Início */
+.title-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 3px solid #4ecdc4;
+    backdrop-filter: blur(10px);
+}
+
+.title-container h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #4ecdc4, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title-container p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+#start-btn, #restart-btn {
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: white;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+#start-btn:hover, #restart-btn:hover {
+    transform: scale(1.05);
+}
+
+.controls {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.controls h3 {
+    margin-bottom: 0.5rem;
+    color: #4ecdc4;
+}
+
+/* HUD */
+#hud {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+}
+
+#stats {
+    display: flex;
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 2px solid #4ecdc4;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+}
+
+#inventory {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 2px solid #f9c74f;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.item-count {
+    font-weight: bold;
+    color: #f9c74f;
+}
+
+/* Canvas */
+#game-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Diálogos */
+#dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+}
+
+.dialog-content {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 3px solid #4ecdc4;
+    text-align: center;
+    min-width: 300px;
+}
+
+#dialog-text {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+#dialog-ok {
+    background: #4ecdc4;
+    border: none;
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Game Over */
+.game-over-content {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 3px solid #ff6b6b;
+    backdrop-filter: blur(10px);
+}
+
+.game-over-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #ff6b6b;
+}
+
+.stats {
+    margin-bottom: 2rem;
+}
+
+.stats p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+/* Efeitos de camadas da montanha */
+.layer-1 { background: linear-gradient(180deg, #87CEEB 0%, #98FB98 30%, #8FBC8F 100%); }
+.layer-2 { background: linear-gradient(180deg, #8FBC8F 0%, #A9A9A9 30%, #696969 100%); }
+.layer-3 { background: linear-gradient(180deg, #696969 0%, #2F4F4F 30%, #1C1C1C 100%); }
+.layer-4 { background: linear-gradient(180deg, #1C1C1C 0%, #000000 50%, #2F4F4F 100%); }
